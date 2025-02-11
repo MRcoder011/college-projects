@@ -29,7 +29,7 @@ let post = [
     },
 ];
 app.get("/posts", (req, res) => {
-    res.render("index.ejs");
+    res.send("i love you");
 });
 
 app.listen(port, () => {
