@@ -3,44 +3,56 @@ const app = express();
 const port = 8080;
 const path = require("path");
 
-// Corrected the typo 'extended:true6' to 'extended: true'
 app.use(express.urlencoded({ extended: true }));
 
-// Removed the extra space in "view engine"
 app.set("view engine", "ejs");
-
-// Fixed syntax: added a comma after "views" and corrected the path
 app.set("views", path.join(__dirname, "views"));
-
-// Fixed incorrect usage of 'app.set' for static files, should be 'app.use'
 app.use(express.static(path.join(__dirname, "public")));
+
 let posts = [
     {
-        username : "Md shafatullah",
-        content : "i Love coding"
+        id: "1a",
+        username: "Md Shafatullah",
+        content: "I love coding"
     },
     {
-        username : "Love babar ",
-        content : "i Love swimming"
+        id: "2a",
+        username: "Love Babar",
+        content: "I love swimming"
     },
     {
-        username : "Piyus sharnma",
-        content : "i Love dancing"
-    },
+        id: "3a",
+        username: "Piyush Sharma",
+        content: "I love dancing"
+    }
 ];
+
 app.get("/posts", (req, res) => {
-    res.render("index.ejs", {posts});
+    res.render("index", { posts });
 });
+
 app.get("/posts/new", (req, res) => {
-    res.render("new.ejs");
-    
+    res.render("new");
 });
+
 app.post("/posts", (req, res) => {
-    //res.render("new.ejs");
-    console.log(req.body);
-    res.send("post request is working");
-    
+    let { username, content } = req.body;
+    let id = Math.random().toString(36).substr(2, 5); // Generate a random ID
+    posts.push({ id, username, content });
+    res.redirect("/posts");
 });
+
+app.get("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => p.id === id);
+
+    if (!post) {
+        return res.status(404).send("Post not found!");
+    }
+
+    res.render("show", { post }); // Passing post data to the template
+});
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
