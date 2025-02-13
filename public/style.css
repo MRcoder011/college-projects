@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.post {
+    background: #fff;
+    padding: 15px;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    text-align: left;
+}
+
+.user {
+    font-weight: bold;
+    font-style: italic; /* Makes the username italic */
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
