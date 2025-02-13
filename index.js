@@ -10,13 +10,13 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 // Fixed syntax: added a comma after "views" and corrected the path
-app.set("views", path.join(__dirname, "public"));
+app.set("views", path.join(__dirname, "views"));
 
 // Fixed incorrect usage of 'app.set' for static files, should be 'app.use'
 app.use(express.static(path.join(__dirname, "public")));
-let post = [
+let posts = [
     {
-        username : "Mdshafatullah",
+        username : "Md shafatullah",
         content : "i Love coding"
     },
     {
@@ -29,7 +29,7 @@ let post = [
     },
 ];
 app.get("/posts", (req, res) => {
-    res.send("i love you");
+    res.render("index.ejs", {posts});
 });
 
 app.listen(port, () => {
