@@ -1,4 +1,4 @@
 # college-projects
-# I mmake a website for as a college project 
+# I make a website for as a college project 
 
  
