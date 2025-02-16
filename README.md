@@ -1,24 +1,19 @@
 # College Projects
 
-## Project: [Your Website Name]
+## Project Title: [Your Project Name]
 
-I created this website as part of my college projects to showcase my skills and learning.
+### Project Overview:
+This project is part of my college work at **Aligarh Muslim University**, focusing on **[your project topic]**.
 
-![Project Preview](images/image.webp)
+![Project Cover](images/image.webp)
 
-### Features:
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+### Team Members:
+- Md Shafatullah
 
-### Technologies Used:
-- HTML, CSS, JavaScript
-- [Any frameworks or libraries]
-
-### How to Use:
-1. Clone the repository:
-   ```sh
    git clone https://github.com/yourusername/your-repo.git
+
+
+
 
 
 
