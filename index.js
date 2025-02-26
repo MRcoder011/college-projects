@@ -1,103 +1,82 @@
 const express = require("express");
 const path = require("path");
-const { v4: uuidv4 } = require("uuid"); // Corrected import for uuid
+const { v4: uuidv4 } = require("uuid"); 
 
 const app = express();
 const port = 8080;
+const methodOverride = require("method-override");
 
-// Middleware to parse URL-encoded and JSON bodies
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Add this to parse JSON bodies
-
-// Set view engine to EJS and specify views directory
+app.use(express.json());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
-// Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, "public")));
 
-// Sample posts array with unique IDs
 let posts = [
-    {
-        id: uuidv4(),
-        username: "Md Shafatullah",
-        content: "I love coding"
-    },
-    {
-        id: uuidv4(),
-        username: "Love Babar",
-        content: "I love swimming"
-    },
-    {
-        id: uuidv4(),
-        username: "Piyush Sharma",
-        content: "I love dancing"
-    }
+    { id: uuidv4(), username: "Md Shafatullah", content: "I love coding" },
+    { id: uuidv4(), username: "Love Babar", content: "I love swimming" },
+    { id: uuidv4(), username: "Piyush Sharma", content: "I love dancing" }
 ];
 
-// Route to display all posts
+// Display all posts
 app.get("/posts", (req, res) => {
     res.render("index", { posts });
 });
 
-// Route to render the form for creating a new post
+// Render new post form
 app.get("/posts/new", (req, res) => {
     res.render("new");
 });
 
-// Route to handle form submission and create a new post
+// Create new post
 app.post("/posts", (req, res) => {
     const { username, content } = req.body;
-    const id = uuidv4(); // Generate a unique ID for the new post
-    posts.push({ id, username, content }); // Add the new post to the array
-    res.redirect("/posts"); // Redirect to the posts page
+    const id = uuidv4();
+    posts.push({ id, username, content });
+    res.redirect("/posts");
 });
 
-// Route to display a single post by ID
+// Display a single post
 app.get("/posts/:id", (req, res) => {
-    const { id } = req.params; // Retrieve the ID from the URL
-    const post = posts.find((p) => p.id === id); // Find the post with the matching ID
-
+    const { id } = req.params;
+    const post = posts.find((p) => p.id === id);
     if (!post) {
-        return res.status(404).send("Post not found!"); // Handle case where post is not found
+        return res.status(404).send("Post not found!");
     }
-
-    res.render("show", { post }); // Render the "show" template with the post data
+    res.render("show", { post });
 });
 
-// Route to render the edit form for a specific post
+// Render edit form
 app.get("/posts/:id/edit", (req, res) => {
-    const { id } = req.params; // Retrieve the ID from the URL
-    const post = posts.find((p) => p.id === id); // Find the post with the matching ID
-
+    const { id } = req.params;
+    const post = posts.find((p) => p.id === id);
     if (!post) {
-        return res.status(404).send("Post not found!"); // Handle case where post is not found
+        return res.status(404).send("Post not found!");
     }
-
-    res.render("edit", { post }); // Render the "edit" template with the post data
+    res.render("edit", { post });
 });
 
-// Route to handle updating a post
+// Corrected DELETE route
+app.delete("/posts/:id", (req, res) => {
+    const { id } = req.params;
+    posts = posts.filter((p) => p.id !== id); // Corrected condition to properly remove the post
+    res.redirect("/posts");
+});
+
+// Update a post
 app.patch("/posts/:id", (req, res) => {
-    const { id } = req.params; // Retrieve the ID from the URL
-    const { content } = req.body; // Retrieve updated content from the request body
-
-    const post = posts.find((p) => p.id === id); // Find the post with the matching ID
-
+    const { id } = req.params;
+    const { content } = req.body;
+    const post = posts.find((p) => p.id === id);
     if (!post) {
-        return res.status(404).send("Post not found!"); // Handle case where post is not found
+        return res.status(404).send("Post not found!");
     }
-
-    post.content = content; // Update the post content
-    res.redirect(`/posts/${id}`); // Redirect to the updated post
+    post.content = content;
+    res.redirect(`/posts/${id}`);
 });
 
-// Start the server
+// Start server
 app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-});
-
-// Error handling for server startup
-app.on("error", (err) => {
-    console.error("Server error:", err);
+    console.log(`Server is running on port ${port}`);
 });
