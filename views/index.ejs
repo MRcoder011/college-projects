@@ -6,6 +6,30 @@
     <title>All Posts</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .post {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px auto;
+            width: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .user {
+            color: #007bff;
+        }
+
         .actions {
             display: flex;
             align-items: center;
@@ -44,10 +68,32 @@
         .delete-btn:hover {
             background-color: darkred;
         }
+
+        /* Centering the "Create New Order" Button */
+        .new-order-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .new-order-btn {
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .new-order-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <h1>Queries About Your Food!</h1>
+    <h1>🛍️ All Orders Details!</h1>
 
     <% for(let post of posts) { %>
         <div class="post">
@@ -62,10 +108,13 @@
                 </form>
             </div>
         </div>
-        <br>
     <% } %>
 
-    <br>
-    <a href="/posts/new">Create a New Delicious Order Now!</a>
+    <!-- Centered "Create a New Delicious Order Now!" Button -->
+    <div class="new-order-container">
+        <a href="/posts/new" class="new-order-btn">Create a New Delicious Order Now!</a>
+    </div>
+
 </body>
 </html>
+
