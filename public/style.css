@@ -1,42 +1,58 @@
 /* General body styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f7fc;
+    background: url('back.webp') no-repeat center center/cover;
     margin: 0;
     padding: 20px;
-    color: #2c3e50;
+    color: #8a6da1;
+    position: relative;
+}
+
+/* Adding a subtle overlay for readability */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
 }
 
 /* Main heading styling */
 h1 {
-    color: #34495e;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 25px;
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 36px; /* Increased font size */
+    font-weight: 800; /* Bolder font weight */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
 }
 
 /* Post container styling */
 .post {
-    background-color: #ffffff;
-    border: 1px solid #d1d9e6;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Added border */
     padding: 20px;
     margin: 20px auto;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-width: 600px;
+    backdrop-filter: blur(15px); /* Increased blur for a softer look */
+    text-align: center;
 }
 
 .post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px); /* Increased hover effect */
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4); /* Enhanced hover shadow */
 }
 
 /* User styling */
 .user {
-    color: #007bff;
-    font-size: 18px;
+    color: #ffcc00;
+    font-size: 22px; /* Increased font size */
     font-weight: bold;
     margin-bottom: 10px;
     display: block;
@@ -44,27 +60,62 @@ h1 {
 
 /* Content styling */
 .content {
-    font-size: 16px;
-    color: #4a4a4a;
-    line-height: 1.6;
+    font-size: 18px; /* Increased font size */
+    color: #34495e; /* Darker color for better contrast */
+    line-height: 1.6; /* Adjusted line height */
     margin-bottom: 15px;
 }
 
-/* Link styling */
-a {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+/* Image Styling */
+.post img {
+    width: 100%;
+    max-height: 350px; /* Slightly increased max height */
+    object-fit: cover;
+    border-radius: 12px; /* Slightly increased border radius */
+    display: block;
+    margin: 10px auto;
 }
 
-a:hover {
-    background-color: #0056b3;
+/* Action buttons container */
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Button styling */
+a, .actions button {
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Different button styles */
+.details-btn {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+}
+
+.edit-btn {
+    background: linear-gradient(45deg, #17a2b8, #138496);
+    color: white;
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+}
+
+.details-btn:hover, .edit-btn:hover, .delete-btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Added shadow on hover */
 }
 
 /* Create New Order link styling */
@@ -73,12 +124,12 @@ a:hover {
     text-align: center;
     margin-top: 30px;
     padding: 12px 18px;
-    background-color: #28a745;
+    background: linear-gradient(45deg, #28a745, #218838);
     color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     max-width: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -87,4 +138,5 @@ a:hover {
 .create-order:hover {
     background-color: #218838;
     transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
