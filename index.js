@@ -72,7 +72,7 @@ app.patch("/posts/:id", (req, res) => {
     if (!post) {
         return res.status(404).send("Post not found!");
     }
-    post.content = content;
+    post.content = content;  
     res.redirect(`/posts/${id}`);
 });
 
