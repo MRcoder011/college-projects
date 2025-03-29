@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        nav {
+            background-color: #2c3e50;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #f39c12;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .menu-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .menu-header h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .menu-header p {
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        .item-info {
+            flex: 1;
+        }
+        .item-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .item-desc {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+        .special {
+            border-left: 4px solid #f39c12;
+        }
+        .veg-icon {
+            color: #27ae60;
+            margin-right: 8px;
+        }
+        .spicy-icon {
+            color: #e74c3c;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/posts">Posts</a>
+    </nav>
+    
+    <div class="container">
+        <div class="menu-header">
+            <h1>Our Delicious Menu</h1>
+            <p>Fresh ingredients, authentic flavors</p>
+        </div>
+        
+        <div class="menu-section">
+            <h2 class="section-title">Starters</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Garlic Bread</div>
+                    <p class="item-desc">Freshly baked bread with garlic butter and herbs</p>
+                </div>
+                <div class="item-price">₹120</div>
+            </div>
+            
+            <div class="menu-item special">
+                <div class="item-info">
+                    <div class="item-name">Bruschetta</div>
+                    <p class="item-desc">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
+                </div>
+                <div class="item-price">₹150</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name"><span class="veg-icon">🌱</span>Vegetable Spring Rolls</div>
+                    <p class="item-desc">Crispy rolls stuffed with mixed vegetables</p>
+                </div>
+                <div class="item-price">₹180</div>
+            </div>
+        </div>
+        
+        <div class="menu-section">
+            <h2 class="section-title">Main Courses</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name"><span class="veg-icon">🌱</span>Paneer Tikka Masala</div>
+                    <p class="item-desc">Grilled cottage cheese in rich creamy tomato gravy</p>
+                </div>
+                <div class="item-price">₹250</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name"><span class="spicy-icon">🌶️</span>Chicken Chettinad</div>
+                    <p class="item-desc">Spicy South Indian style chicken curry</p>
+                </div>
+                <div class="item-price">₹280</div>
+            </div>
+            
+            <div class="menu-item special">
+                <div class="item-info">
+                    <div class="item-name">Butter Chicken</div>
+                    <p class="item-desc">Tender chicken in creamy tomato and butter sauce</p>
+                </div>
+                <div class="item-price">₹300</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name"><span class="veg-icon">🌱</span>Dal Makhani</div>
+                    <p class="item-desc">Slow-cooked black lentils with butter and cream</p>
+                </div>
+                <div class="item-price">₹220</div>
+            </div>
+        </div>
+        
+        <div class="menu-section">
+            <h2 class="section-title">Desserts</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Gulab Jamun</div>
+                    <p class="item-desc">Soft milk dumplings in sugar syrup</p>
+                </div>
+                <div class="item-price">₹120</div>
+            </div>
+            
+            <div class="menu-item special">
+                <div class="item-info">
+                    <div class="item-name">Chocolate Lava Cake</div>
+                    <p class="item-desc">Warm chocolate cake with molten center, served with vanilla ice cream</p>
+                </div>
+                <div class="item-price">₹180</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Mango Kulfi</div>
+                    <p class="item-desc">Traditional Indian mango ice cream</p>
+                </div>
+                <div class="item-price">₹150</div>
+            </div>
+        </div>
+        
+        <div class="menu-section">
+            <h2 class="section-title">Beverages</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Fresh Lime Soda</div>
+                    <p class="item-desc">Sparkling soda with fresh lime and mint</p>
+                </div>
+                <div class="item-price">₹80</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Mango Lassi</div>
+                    <p class="item-desc">Sweet yogurt drink with mango pulp</p>
+                </div>
+                <div class="item-price">₹120</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <div class="item-name">Masala Chai</div>
+                    <p class="item-desc">Spiced Indian tea with milk</p>
+                </div>
+                <div class="item-price">₹60</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

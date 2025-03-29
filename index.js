@@ -23,6 +23,9 @@ let posts = [
 app.get("/posts", (req, res) => {
     res.render("index", { posts });
 });
+app.get("/menu", (req, res) => {
+    res.render("menu");
+});
 
 // Render new post form
 app.get("/posts/new", (req, res) => {
